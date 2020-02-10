@@ -1,3 +1,5 @@
+const bodyTag = document.querySelector('body');
+
 const runScripts = () => {
   const headers = document.querySelectorAll('h2, h3');
   const imageHolders = document.querySelectorAll('.image');
@@ -76,6 +78,16 @@ barba.init({
       }
     }
   ],
-  views: [],
+  views: [
+    {
+      namespace: 'product',
+      beforeEnter: () => {
+        bodyTag.classList.add('product');
+      },
+      afterLeave: () => {
+        bodyTag.classList.remove('product');
+      }
+    }
+  ],
   debug: true
 });
