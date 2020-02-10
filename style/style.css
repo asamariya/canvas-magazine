@@ -152,3 +152,16 @@ footer a {
   display: block;
   color: currentColor;
 }
+
+.image {
+  overflow: hidden;
+}
+
+.image img {
+  transform: translate(0, 120%);
+  transition: transform 1s 0.25s var(--timing);
+}
+
+.image.in-view img {
+  transform: translate(0, 0);
+}

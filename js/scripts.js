@@ -1,6 +1,7 @@
 const headers = document.querySelectorAll('h2, h3');
+const imageHolders = document.querySelectorAll('.image');
 
-const callback = entries => {
+const toggleInView = entries => {
   entries.forEach(entry => {
     if (entry.intersectionRatio >= 0.1) {
       entry.target.classList.add('in-view');
@@ -12,6 +13,13 @@ const callback = entries => {
 const options = {
   threshold: [0, 0.1, 1]
 };
-const observer = new IntersectionObserver(callback, options);
+const observer = new IntersectionObserver(toggleInView, options);
 
 headers.forEach(header => observer.observe(header));
+imageHolders.forEach(holder => observer.observe(holder));
+
+barba.init({
+  transitions: [],
+  views: [],
+  debug: true
+});
